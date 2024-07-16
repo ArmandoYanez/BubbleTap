@@ -1,0 +1,358 @@
+fileFormatVersion: 2
+guid: a45cc2e34ea9e7747a93de7ca14f34a0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8333023333244847752
+    second: Bububles_0
+  - first:
+      213: 6660904059267125365
+    second: Bububles_1
+  - first:
+      213: -9013605505804642368
+    second: Bububles_2
+  - first:
+      213: 1786331430365255376
+    second: Bububles_3
+  - first:
+      213: 8818391113196608479
+    second: Bububles_4
+  - first:
+      213: -8710602947736551189
+    second: Bububles_5
+  - first:
+      213: 5534155141177017057
+    second: Bububles_6
+  - first:
+      213: 4629124693388883560
+    second: Bububles_7
+  - first:
+      213: 2958960171925806091
+    second: Bububles_8
+  - first:
+      213: 7445800965701654393
+    second: Bububles_9
+  - first:
+      213: 4527910430340009536
+    second: Bububles_10
+  - first:
+      213: -2957456674175850047
+    second: Bububles_11
+  - first:
+      213: 4613061501280931539
+    second: Bububles_12
+  - first:
+      213: -9084895151679090015
+    second: Bububles_13
+  - first:
+      213: 8012105550720334519
+    second: Bububles_14
+  - first:
+      213: -1191940132865940930
+    second: Bububles_15
+  - first:
+      213: -6378536914824792814
+    second: Bububles_16
+  - first:
+      213: -5063241941525233629
+    second: Bububles_17
+  - first:
+      213: 1129376426656412585
+    second: Bububles_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Bububles_0
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 316
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8b84be18afdb4b49a58e690101611ae
+      internalID: 1485478498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bububles_1
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 316
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cded0b1fb392dc45a095dacb692d146
+      internalID: -771129002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bububles_2
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 316
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8893414fd86366049935216f21105675
+      internalID: -539915830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bububles_3
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 316
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fc58b8026ea0b345a28009088c3b2e0
+      internalID: -2083815306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bububles_4
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 316
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da0d321d18018cd4a90f3554e24e8cfd
+      internalID: -1434473948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bububles_7
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 76
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a56cbb4e0ea5dc4796dcd480ec28b0f
+      internalID: -273397141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bububles_8
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 76
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 890285755901eb343abd3902174af9d3
+      internalID: 1042232083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bububles_9
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 76
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c76d46b9e8197bc49a006ebc053378f6
+      internalID: -1144330745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 82ce530e27416cc4ab5a304380305dbf
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Bububles_0: 1485478498
+      Bububles_1: -771129002
+      Bububles_10: 1468780870
+      Bububles_11: -597380529
+      Bububles_12: -1764971416
+      Bububles_13: -481515129
+      Bububles_14: -658400145
+      Bububles_15: 1445133789
+      Bububles_16: 493241927
+      Bububles_17: 398783538
+      Bububles_18: -397346047
+      Bububles_2: -539915830
+      Bububles_3: -2083815306
+      Bububles_4: -1434473948
+      Bububles_5: 2097305011
+      Bububles_6: -1791584717
+      Bububles_7: -273397141
+      Bububles_8: 1042232083
+      Bububles_9: -1144330745
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
