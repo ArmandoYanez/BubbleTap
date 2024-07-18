@@ -309,6 +309,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1907732085}
+  - component: {fileID: 1907732086}
   m_Layer: 0
   m_Name: score_managers
   m_TagString: Untagged
@@ -331,6 +332,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1263413972}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1907732086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907732084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d231b1bb851edee4aac80754eb5ab1f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bubbleCount: 0
+  mainCamera: {fileID: 569450670}
+  bubble: {fileID: 1725759233111495416, guid: f9a57b32c01d4d54d9db8534c03ddd18, type: 3}
+  round: 1
 --- !u!1001 &1961049247
 PrefabInstance:
   m_ObjectHideFlags: 0
