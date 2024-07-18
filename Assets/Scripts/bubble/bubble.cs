@@ -3,18 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class bubble : MonoBehaviour
 {
+    // Variables publicas
+  
     
     //Variables privadas 
     private Collider2D collider;
     private Animator animator;
+    private AudioSource audio;
     
     private void Start()
     {
         collider = GetComponent<Collider2D>(); // Accedemos al componente collider
         animator = GetComponent<Animator>(); // Accedemos al componente animator
+        audio = GetComponent<AudioSource>(); // Accedemos al componente audiosource
     }
 
     private void Update()
@@ -25,7 +30,7 @@ public class bubble : MonoBehaviour
             // recorrer en todos los toques detectados
             for (int i = 0; i < Input.touchCount; i++)
             {
-                // pbtener el toque
+                // obtener el toque
                 Touch touch = Input.GetTouch(i);
 
                 // verificamos si el toque fue comnezado (TouchPhase.Began)
@@ -51,8 +56,18 @@ public class bubble : MonoBehaviour
         // Iniciamos la animacion 
         animator.Play("explosion");
         
+        // Desactivamos collider
+        collider.enabled = false;
+        
+        // Reproduciomos su audiosoruce
+        audio.pitch = (Random.Range(0.6f, 1.5f));
+        audio.Play();
+        
+        //Sumamos la borbuja al manager
+        bubble_manager.Instance.bubbleCount++;
+        
         // Esperamos hasta que la animacion termine para continuar 
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length + 0.05f);
         
         //Desactivamos el objeto
         gameObject.SetActive(false);
