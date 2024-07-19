@@ -63,8 +63,9 @@ public class bubble : MonoBehaviour
         audio.pitch = (Random.Range(0.6f, 1.5f));
         audio.Play();
         
-        //Sumamos la borbuja al manager
+        //Sumamos la burbuja al manager
         bubble_manager.Instance.bubbleCount++;
+        bubble_manager.Instance.bubblesRemaining--;
         
         // Esperamos hasta que la animacion termine para continuar 
         yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length + 0.05f);

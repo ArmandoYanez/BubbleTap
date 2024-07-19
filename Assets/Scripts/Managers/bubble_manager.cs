@@ -2,6 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// clase Ronda
+[System.Serializable]
+public class Rounds
+{
+    
+    public int numberOfBubbles; // Número de burbujas en cada ronda
+}
+
 public class bubble_manager : MonoBehaviour
 {
     // Variable publicas
@@ -9,6 +17,9 @@ public class bubble_manager : MonoBehaviour
     public Camera mainCamera;
     public GameObject bubble;
     public int round = 1;
+    public List<Rounds> rounds; // Lista para manejar las rondas
+    private int currentRound = 0; // Ronda actual
+    public int bubblesRemaining; // Burbujas restantes en la ronda actual
     
     //Singleton
     public static bubble_manager Instance { get; private set; }
@@ -29,13 +40,14 @@ public class bubble_manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Inicializar la primera ronda
+        StartRound(currentRound);
     }
 
     // Update is called once per frame
     void Update()
     {
-        bubbleGenerator();
+        CheckBubbles();
     }
 
     // Generador de burbujas bonitas
@@ -63,6 +75,40 @@ public class bubble_manager : MonoBehaviour
         
         AudioSource audioSource = bubble.GetComponent<AudioSource>();
         //audioSource.enabled = false;
+    }
+
+        void StartRound(int _round)
+    {
+        if (_round < rounds.Count)
+        {
+            bubblesRemaining = rounds[_round].numberOfBubbles;
+            // Generamos las burbujas segun la ronda
+            for (int i = 0; i < bubblesRemaining; i++){
+                bubbleGenerator();
+            }
+            Debug.Log("Ronda " + (_round + 1) + " con " + bubblesRemaining + " burbujas.");
+        }
+        else
+        {
+            Debug.Log("¡Rondas completadas!");
+        }
+    }
+
+        void CheckBubbles()
+    {
+            // Si no quedan burbujas, pasamos a la siguiente ronda
+            if (bubblesRemaining == 0)
+            {
+                currentRound++;
+                if (currentRound < rounds.Count)
+                {
+                    StartRound(currentRound);
+                }
+                else
+                {
+                    Debug.Log("¡Todas las rondas completadas!");
+                }
+            }
     }
     
 }

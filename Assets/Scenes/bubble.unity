@@ -295,6 +295,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bubble (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1725759233111495416, guid: f9a57b32c01d4d54d9db8534c03ddd18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -348,6 +352,12 @@ MonoBehaviour:
   mainCamera: {fileID: 569450670}
   bubble: {fileID: 1725759233111495416, guid: f9a57b32c01d4d54d9db8534c03ddd18, type: 3}
   round: 1
+  rounds:
+  - numberOfBubbles: 5
+  - numberOfBubbles: 7
+  - numberOfBubbles: 9
+  - numberOfBubbles: 11
+  bubblesRemaining: 0
 --- !u!1001 &1961049247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -399,6 +409,10 @@ PrefabInstance:
     - target: {fileID: 1725759233111495416, guid: f9a57b32c01d4d54d9db8534c03ddd18, type: 3}
       propertyPath: m_Name
       value: Bubble (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725759233111495416, guid: f9a57b32c01d4d54d9db8534c03ddd18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -456,6 +470,10 @@ PrefabInstance:
     - target: {fileID: 1725759233111495416, guid: f9a57b32c01d4d54d9db8534c03ddd18, type: 3}
       propertyPath: m_Name
       value: Bubble
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725759233111495416, guid: f9a57b32c01d4d54d9db8534c03ddd18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
