@@ -8,13 +8,12 @@ using Random = UnityEngine.Random;
 public class bubble : MonoBehaviour
 {
     // Variables publicas
-  
-    
+
     //Variables privadas 
     private Collider2D collider;
     private Animator animator;
     private AudioSource audio;
-    
+ 
     private void Start()
     {
         collider = GetComponent<Collider2D>(); // Accedemos al componente collider
