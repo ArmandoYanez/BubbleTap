@@ -4,12 +4,11 @@ using TMPro;
 using UnityEngine;
 
 // clase Ronda
-[System.Serializable]
-public class Rounds
+[System.Serializable] public class Rounds
 {
     public int numberOfBubbles; // Número de burbujas en cada ronda
     
-    //Crear contadores de tiempo 
+    //Crear contadores de tiempo
     private float timeP1 = 0;
     private float timeP2 = 0;
 }
@@ -17,7 +16,7 @@ public class Rounds
 public class bubble_manager : MonoBehaviour
 {
     // Variable publicas
-    public int bubbleCount = 0;
+    public int bubbleCount;
     public Camera mainCamera;
     public GameObject bubble;
     public int round = 1;
@@ -61,55 +60,52 @@ public class bubble_manager : MonoBehaviour
             
     }
 
-    // Update is called once per frame
-    void Update()
+    // Verifica que jugador le toca
+    public void CheckPlayer()
     {
         if (turnoPlayer1)
         {
-            CheckBubbles();
+         RondaPlayer1();   
+        }
+
+        else if (!turnoPlayer1)
+        {
+         RondaPlayer2();   
+        }
+    }
+
+    //Iniciar ronda del player 1
+    public void RondaPlayer1()
+    {
+        CheckBubbles1();
+    }
+
+    //Iniciar ronda del player 2
+    public void RondaPlayer2()
+    {
+        CheckBubbles2();
+    }
+    
+    // Update is called once per frame
+    void Update()
+    {
+       if (!(currentRound > 3))
+       {
+            CheckPlayer();
             time += Time.deltaTime;
             timetext.text = time.ToString("F3");
-        }
-        else
-        {
-            ActivarBorbujasP2(currentRound);
-        }
-       Debug.Log("Turno player 1: " + turnoPlayer1);
-       Debug.Log("Tap to start:" + estado);
+
+            Debug.Log("Turno player 1: " + turnoPlayer1);
+            Debug.Log("Tap to start:" + estado);
+            Debug.Log("Ronda:" + currentRound);
+            Debug.Log("Burbujas Restantes:" + bubblesRemaining);
+       }     
+      
     }
 
     // Generador de burbujas bonitas
     void bubbleGenerator()
     {
-        /*
-        Vector3 randomPosition = new Vector3(10, 10, 10);
-        
-        // Calcular los límites visibles de la cámara
-        float cameraHeight = 2f * mainCamera.orthographicSize;
-        float cameraWidth = cameraHeight * mainCamera.aspect;
-        
-        float left = mainCamera.transform.position.x - (cameraWidth / 2) + 1;
-        float right = mainCamera.transform.position.x + (cameraWidth / 2) - 1;
-        float top = mainCamera.transform.position.y + (cameraHeight / 2) - 1;
-        float bottom = mainCamera.transform.position.y - (cameraHeight / 2) + 1;
-        
-        // Generar una posición aleatoria dentro de los límites de la cámara
-        float randomX = Random.Range(left, right);
-        float randomY = Random.Range(bottom, top);
-        
-        
-        Vector3 worldPosition = new Vector3(randomX, randomY, 10);  // Convertir a coordenadas del mundo
-        
-        
-        
-        
-        Instantiate(bubble, worldPosition, Quaternion.identity);  // Instanciar el prefab en la posición del mundo
-        
-        AudioSource audioSource = bubble.GetComponent<AudioSource>();
-        
-        //Para audio manager
-        //audioSource.enabled = false;
-        */
         Vector3 randomPosition = new Vector3(10, 10, 10);
     
              // Calcular los límites visibles de la cámara
@@ -150,7 +146,6 @@ public class bubble_manager : MonoBehaviour
 
         void StartRound(int _round)
     {
-
         if (_round < rounds.Count)
         {
             bubblesRemaining = rounds[_round].numberOfBubbles;
@@ -167,75 +162,87 @@ public class bubble_manager : MonoBehaviour
         }
     }
 
-        void CheckBubbles() {
+        void CheckBubbles1() {
             // Si no quedan burbujas, pasamos a la siguiente ronda
             if (bubblesRemaining == 0)
             {
-                turnoPlayer1 = false;
-                if (turnoPlayer1)
-                {
-                    TapToStart();
+                    TapToStartP2();
+                    turnoPlayer1 = false;
+                    
+                    if (currentRound < rounds.Count) {
+                        ActivarBorbujasP2(currentRound);
+                    }
+                    else
+                    {
+                        Debug.Log("¡Todas las rondas P1 completadas!");
+                        //Corutina animacion panel
+                    }
+            }
+         }
+
+        void CheckBubbles2() {
+            // Si no quedan burbujas, pasamos a la siguiente ronda
+            if (bubblesRemaining == 0)
+            {       
+                    BubblesArray.Clear();
+                    TapToStartP1();
                     currentRound++;
+                    turnoPlayer1 = true;
+                    
 
                     if (currentRound < rounds.Count) {
                         StartRound(currentRound);
                     }
                     else
                     {
-                        Debug.Log("¡Todas las rondas completadas!");
+                        Debug.Log("¡Todas las rondas P2 completadas!");
                         //Corutina animacion panel
                     }
-                }
+                    
+                    
+
             }
          }
         
-        // Generar borbujas player 2
+        /*// Generar borbujas player 2
         public void ActivarBorbujasP2(int _round)
         {
-            TapToStart();
-            estado = true;
             bubblesRemaining = rounds[_round].numberOfBubbles;
             
-            for (int i = 0; i < bubblesRemaining; i++)
-            {
                 foreach (GameObject bubbleNew in BubblesArray)
                 {
                     Vector3 bubblePosition = bubbleNew.transform.position;
+                    BubblesArray.Add(bubbleNew);
                     Instantiate(bubble, bubblePosition, Quaternion.identity);
                 }
-            }
-            turnoPlayer1 = true;
+        }
+        */
+
+        public void ActivarBorbujasP2(int _round)
+        {
+            bubblesRemaining = rounds[_round].numberOfBubbles;
+    
+                for (int i = 0; i < BubblesArray.Count; i++)
+                {
+                GameObject bubbleNew = BubblesArray[i];
+                Vector3 bubblePosition = bubbleNew.transform.position;
+                Instantiate(bubble, bubblePosition, Quaternion.identity);
+                }
         }
 
         // Funciones para boton
         
         // Funcion para cambiar estado del tap to start
-        public void TapToStart()
+        public void TapToStartP1()
         {
             //Activar panel
-            if (!estado)
-            {
-                //Meter corrutina con animacion de entrada
                 Panel.SetActive(true);
-            }
-            else
-            {
-                estado = true; //Le dejamos acceder a la funcion generar
-            }
         } 
         
         public void TapToStartP2()
         {
             //Activar panel
-            if (!estado)
-            {
-                //Meter corrutina con animacion de entrada
                 Panel2.SetActive(true);
-            }
-            else
-            {
-                estado = true; //Le dejamos acceder a la funcion generar
-            }
         }   
         
         //Iniciar tiempo en 0
