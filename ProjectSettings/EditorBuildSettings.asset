@@ -12,5 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/bubble.unity
     guid: 0fb39272c0b9e2f40ab91e1daf628f30
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 2ce1cca9961c9cd47963169c1ce2d51f, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: eff6a48634c8b3d4781ec2fb049c2695, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: fbb47290ecea1ff46b374bf8e12f1c5f, type: 2}
   m_UseUCBPForAssetBundles: 0
