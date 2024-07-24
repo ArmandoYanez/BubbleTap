@@ -1,0 +1,8 @@
+D:/Unity_Proyects/BubbleTap/.utmp/RelWithDebInfo/5m04y6i7/arm64-v8a/CMakeFiles/edit_cache.dir
+D:/Unity_Proyects/BubbleTap/.utmp/RelWithDebInfo/5m04y6i7/arm64-v8a/CMakeFiles/rebuild_cache.dir
+D:/Unity_Proyects/BubbleTap/.utmp/RelWithDebInfo/5m04y6i7/arm64-v8a/GameActivity/CMakeFiles/game.dir
+D:/Unity_Proyects/BubbleTap/.utmp/RelWithDebInfo/5m04y6i7/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+D:/Unity_Proyects/BubbleTap/.utmp/RelWithDebInfo/5m04y6i7/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
+D:/Unity_Proyects/BubbleTap/.utmp/RelWithDebInfo/5m04y6i7/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
+D:/Unity_Proyects/BubbleTap/.utmp/RelWithDebInfo/5m04y6i7/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
+D:/Unity_Proyects/BubbleTap/.utmp/RelWithDebInfo/5m04y6i7/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir
