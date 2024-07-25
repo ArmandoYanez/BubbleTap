@@ -2434,7 +2434,8 @@ Material:
   m_Shader: {fileID: 4800000, guid: a36b7719ff0465b42ab1407d67672c5f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - WAVEUV_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -2611,7 +2612,7 @@ Material:
     - _RectSize: 1
     - _RotateUvAmount: 0
     - _RoundWaveSpeed: 2
-    - _RoundWaveStrength: 0.7
+    - _RoundWaveStrength: 0.102
     - _ShadowAlpha: 0.5
     - _ShadowX: 0.1
     - _ShadowY: -0.05
@@ -2631,8 +2632,8 @@ Material:
     - _WarpScale: 0.5
     - _WarpSpeed: 8
     - _WarpStrength: 0.025
-    - _WaveAmount: 7
-    - _WaveSpeed: 10
+    - _WaveAmount: 16.8
+    - _WaveSpeed: 13.9
     - _WaveStrength: 7.5
     - _WaveX: 0
     - _WaveY: 0.5
