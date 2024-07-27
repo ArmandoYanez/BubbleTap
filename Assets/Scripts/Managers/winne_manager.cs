@@ -37,7 +37,7 @@ public class winne_manager : MonoBehaviour
         }
         flag = 0; //Reinciamos bandera
         
-        for (int i = 0; i <= 3; i++)
+        for (int i = 0; i <= 2; i++)
         {
             if (player1[i] < player2[i])
             {

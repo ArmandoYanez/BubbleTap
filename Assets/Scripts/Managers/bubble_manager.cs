@@ -18,12 +18,16 @@ public class bubble_manager : MonoBehaviour
     // Variable publicas
     public int bubbleCount;
     public Camera mainCamera;
+    
     public GameObject bubble;
+    public GameObject bubble2;
+    
     public int round = 1;
     public List<Rounds> rounds; // Lista para manejar las rondas
     public int bubblesRemaining; // Burbujas restantes en la ronda actual
     public TextMeshProUGUI timetext;
     public float time = 0;
+    public AudioSource audioNice;
     
     //Objetos paneles
     [SerializeField] public GameObject Panel; //Panel para desactivar y activar
@@ -37,6 +41,8 @@ public class bubble_manager : MonoBehaviour
     
     bool tiempoDeEspera = false;
     bool tiempoDeEspera2 = false;
+
+    private bool audioOneTime = true;
     
     //Singleton
     public static bubble_manager Instance { get; private set; }
@@ -62,7 +68,6 @@ public class bubble_manager : MonoBehaviour
             StartRound(currentRound);
             
             //Activar panel
-            Panel.SetActive(true);
             tiempoDeEspera2 = false;
             
     }
@@ -106,7 +111,7 @@ public class bubble_manager : MonoBehaviour
             if (!(bubblesRemaining == 0))
             {
                 time += Time.deltaTime;
-                timetext.text = time.ToString("F3");
+                timetext.text = time.ToString("F3") + ("s");
             }
             
 
@@ -114,7 +119,11 @@ public class bubble_manager : MonoBehaviour
             Debug.Log("Tap to start:" + estado);
             Debug.Log("Ronda:" + currentRound);
             Debug.Log("Burbujas Restantes:" + bubblesRemaining);
-       }     
+       }
+       else
+       {
+           Debug.Log("final de rondas");
+       }
       
     }
 
@@ -205,17 +214,24 @@ public class bubble_manager : MonoBehaviour
                 rounds[currentRound].timeP1 = time;
                 
                 //Paramos el texto y lo cambiamos de color
-                timetext.text = rounds[currentRound].timeP1.ToString("F3");
+                timetext.text = rounds[currentRound].timeP1.ToString("F3") + ("s");
                 timetext.color = new Color32(119,221,119, 255);
+                if (audioOneTime)
+                {
+                    audioNice.Play();
+                    audioOneTime = false;
+                }
 
                     if (tiempoDeEspera2)
                     {
-                        TapToStartP2();
+                        //TapToStartP2();
+                        //ActivarPanel2();
                         turnoPlayer1 = false;
                         timetext.color = Color.white;
                         
                         if (currentRound <= rounds.Count) {
                             ActivarBorbujasP2(currentRound);
+                            audioOneTime = true;
                         }
                         else
                         {
@@ -235,13 +251,19 @@ public class bubble_manager : MonoBehaviour
                 rounds[currentRound].timeP2 = time;
                 
                 //Paramos el texto y lo cambiamos de color
-                timetext.text = rounds[currentRound].timeP2.ToString("F3");
+                timetext.text = rounds[currentRound].timeP2.ToString("F3") + ("s");
                 timetext.color = new Color32(119,221,119, 255);
-                
+                if (audioOneTime)
+                {
+                    audioNice.Play();
+                    audioOneTime = false;
+                }
+               
                 
                 if (tiempoDeEspera)
                 {
-                    TapToStartP1();
+                    //TapToStartP1();
+                    
                     currentRound++;
                     turnoPlayer1 = true;
                     timetext.color = Color.white;
@@ -249,6 +271,7 @@ public class bubble_manager : MonoBehaviour
                     BubblesArray.Clear();
 
                     if (currentRound <= rounds.Count) {
+                        audioOneTime = true;
                         StartRound(currentRound);
                     }
                     else
@@ -313,6 +336,7 @@ public class bubble_manager : MonoBehaviour
         IEnumerator EsperamosTiempoTap1()
         {
             // Esperar 0.5 segundos
+            ActivarPanel1();
             yield return new WaitForSeconds(1f);
             tiempoDeEspera = true;
             
@@ -320,6 +344,7 @@ public class bubble_manager : MonoBehaviour
         
         IEnumerator EsperamosTiempoTap2()
         {
+            ActivarPanel2();
             // Esperar 0.5 segundos
             yield return new WaitForSeconds(1f);
             tiempoDeEspera2 = true;
@@ -337,9 +362,8 @@ public class bubble_manager : MonoBehaviour
                 bubbleCollider.GetComponent<CircleCollider2D>().enabled = true;
             }
             
-            //Activar panel
-                Panel.SetActive(true);
-                tiempoDeEspera2 = false;
+            Panel.GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+               
         } 
         
         public void TapToStartP2()
@@ -349,10 +373,22 @@ public class bubble_manager : MonoBehaviour
                 bubbleCollider.GetComponent<CircleCollider2D>().enabled = true;
             }
             
+            Panel2.GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
+        }
+
+        public void ActivarPanel1()
+        {
             //Activar panel
-                Panel2.SetActive(true);
-                tiempoDeEspera = false;
-        }   
+            LeanTween.scale(Panel.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.8f);
+            tiempoDeEspera2 = false;
+        }
+        
+        public void ActivarPanel2()
+        {
+            //Activar panel
+            LeanTween.scale(Panel2.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.8f);
+            tiempoDeEspera = false;
+        }
         
         //Iniciar tiempo en 0
         public void TiempoEnCero()
