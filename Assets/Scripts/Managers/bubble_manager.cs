@@ -29,6 +29,10 @@ public class bubble_manager : MonoBehaviour
     public float time = 0;
     public AudioSource audioNice;
     
+    //Textos de la ronda
+    public TextMeshProUGUI textoronda;
+    public TextMeshProUGUI textoronda2;
+    
     //Objetos paneles
     [SerializeField] public GameObject Panel; //Panel para desactivar y activar
     [SerializeField] public GameObject Panel2; //Panel para desactivar y activar
@@ -63,6 +67,8 @@ public class bubble_manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
+            // Imprmimos texto
+            textoronda.text = "ROUND: " + (currentRound+1).ToString();
             BubblesArray = new List<GameObject>(); // Inicializar lista
             // Inicializar la primera ronda
             StartRound(currentRound);
@@ -247,6 +253,7 @@ public class bubble_manager : MonoBehaviour
             // Si no quedan burbujas, pasamos a la siguiente ronda
             if (bubblesRemaining == 0)
             {
+                
                 StartCoroutine(EsperamosTiempoTap1());
                 rounds[currentRound].timeP2 = time;
                 
@@ -379,6 +386,7 @@ public class bubble_manager : MonoBehaviour
         public void ActivarPanel1()
         {
             //Activar panel
+            textoronda.text = "ROUND: " +  (currentRound+2).ToString();
             LeanTween.scale(Panel.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.8f);
             tiempoDeEspera2 = false;
         }
@@ -386,6 +394,7 @@ public class bubble_manager : MonoBehaviour
         public void ActivarPanel2()
         {
             //Activar panel
+            textoronda2.text = "ROUND: " +  (currentRound+1).ToString();
             LeanTween.scale(Panel2.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.8f);
             tiempoDeEspera = false;
         }
