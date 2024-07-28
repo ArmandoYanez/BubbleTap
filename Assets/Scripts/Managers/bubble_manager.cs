@@ -19,8 +19,12 @@ public class bubble_manager : MonoBehaviour
     public int bubbleCount;
     public Camera mainCamera;
     
+    //Objeto de la posicon del panel final
+    public Transform ObjetoAdondePanel;
+    
     public GameObject bubble;
-    public GameObject bubble2;
+   
+    public GameObject WinnerPanel;
     
     public int round = 1;
     public List<Rounds> rounds; // Lista para manejar las rondas
@@ -121,14 +125,14 @@ public class bubble_manager : MonoBehaviour
             }
             
 
-            Debug.Log("Turno player 1: " + turnoPlayer1);
-            Debug.Log("Tap to start:" + estado);
-            Debug.Log("Ronda:" + currentRound);
-            Debug.Log("Burbujas Restantes:" + bubblesRemaining);
+           // Debug.Log("Turno player 1: " + turnoPlayer1);
+           // Debug.Log("Tap to start:" + estado);
+           // Debug.Log("Ronda:" + currentRound);
+          // Debug.Log("Burbujas Restantes:" + bubblesRemaining);
        }
        else
        {
-           Debug.Log("final de rondas");
+          // Debug.Log("final de rondas");
        }
       
     }
@@ -208,7 +212,7 @@ public class bubble_manager : MonoBehaviour
         else
         {
             Debug.Log("¡Rondas completadas!");
-            
+            winnerPanelFunct();
         }
     }
 
@@ -285,6 +289,7 @@ public class bubble_manager : MonoBehaviour
                     {
                         Debug.Log("¡Todas las rondas P2 completadas!");
                         //Corutina animacion panel
+                        winnerPanelFunct();
                     }
                   
                 }
@@ -357,6 +362,12 @@ public class bubble_manager : MonoBehaviour
             tiempoDeEspera2 = true;
 
         }
+
+        //Funcion para bajar el panel
+        void winnerPanelFunct()
+        {
+            LeanTween.scale(WinnerPanel.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.3f);
+        }
         
         // Funciones para boton
         
@@ -385,10 +396,13 @@ public class bubble_manager : MonoBehaviour
 
         public void ActivarPanel1()
         {
-            //Activar panel
-            textoronda.text = "ROUND: " +  (currentRound+2).ToString();
-            LeanTween.scale(Panel.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.8f);
-            tiempoDeEspera2 = false;
+            if (currentRound+1 < rounds.Count)
+            {
+                //Activar panel
+                textoronda.text = "ROUND: " +  (currentRound+2).ToString();
+                LeanTween.scale(Panel.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.8f);
+                tiempoDeEspera2 = false;
+            }
         }
         
         public void ActivarPanel2()

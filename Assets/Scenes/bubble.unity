@@ -953,7 +953,7 @@ RectTransform:
   m_GameObject: {fileID: 529987431}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1184586212}
@@ -964,7 +964,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7, y: 1615}
+  m_AnchoredPosition: {x: -7, y: -24}
   m_SizeDelta: {x: 767.0918, y: 351.7191}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &529987433
@@ -1214,7 +1214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8509804, g: 0.16470589, b: 0.8156863, a: 1}
+  m_Color: {r: 0.91764706, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2037,7 +2037,6 @@ GameObject:
   - component: {fileID: 777511219}
   - component: {fileID: 777511222}
   - component: {fileID: 777511221}
-  - component: {fileID: 777511223}
   m_Layer: 5
   m_Name: TapStartP1
   m_TagString: Untagged
@@ -2143,22 +2142,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &777511223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 777511217}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shaderTypes: 0
-  normalStrength: 5
-  normalSmoothing: 1
-  computingNormal: 0
 --- !u!1 &839378307
 GameObject:
   m_ObjectHideFlags: 0
@@ -3615,7 +3598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9529412, b: 0.22352941, a: 1}
+  m_Color: {r: 0.7019608, g: 0.39607844, b: 0.94509804, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4930,37 +4913,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9a57b32c01d4d54d9db8534c03ddd18, type: 3}
---- !u!1 &1751127437
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1751127438}
-  m_Layer: 0
-  m_Name: CentroDeLaPantalla
-  m_TagString: Untagged
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1751127438
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1751127437}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1855757076
 GameObject:
   m_ObjectHideFlags: 0
@@ -5082,8 +5034,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubbleCount: 0
   mainCamera: {fileID: 569450670}
+  ObjetoAdondePanel: {fileID: 777511218}
   bubble: {fileID: 714909184}
-  bubble2: {fileID: 8222287136977738019}
+  WinnerPanel: {fileID: 529987431}
   round: 1
   rounds:
   - numberOfBubbles: 10
@@ -6404,5 +6357,4 @@ SceneRoots:
   - {fileID: 190902265}
   - {fileID: 839378308}
   - {fileID: 1241121808}
-  - {fileID: 1751127438}
   - {fileID: 982186660}
