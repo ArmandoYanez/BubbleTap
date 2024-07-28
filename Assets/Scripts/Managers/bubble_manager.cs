@@ -15,6 +15,8 @@ using UnityEngine;
 
 public class bubble_manager : MonoBehaviour
 {
+    public winne_manager winnerScript;
+    
     // Variable publicas
     public int bubbleCount;
     public Camera mainCamera;
@@ -362,11 +364,20 @@ public class bubble_manager : MonoBehaviour
             tiempoDeEspera2 = true;
 
         }
+        
+        IEnumerator EsperamosTiempoWinner()
+        {
+            // Esperar 0.5 segundos
+            yield return new WaitForSeconds(1f);
+            winnerScript.rondasterminadas();
+
+        }
 
         //Funcion para bajar el panel
         void winnerPanelFunct()
         {
             LeanTween.scale(WinnerPanel.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.3f);
+            StartCoroutine(EsperamosTiempoWinner());
         }
         
         // Funciones para boton
