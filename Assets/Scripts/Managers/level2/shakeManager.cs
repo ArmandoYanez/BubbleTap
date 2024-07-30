@@ -5,11 +5,16 @@ using UnityEngine;
 public class shakeManager : MonoBehaviour
 {
     public float shakeThreshold = 2.0f; 
-    public float shakeDuration = 0.5f; 
+    public float shakeDuration = 0.5f;
 
+
+    public AudioSource sacudir;
+    
     private float lastShakeTime;
     private Vector3 lastAcceleration;
 
+    public int vecesSacundido = 0;
+    
     void Update()
     {
         Vector3 acceleration = Input.acceleration;
@@ -30,8 +35,10 @@ public class shakeManager : MonoBehaviour
         lastAcceleration = acceleration;
     }
 
-    void OnShakeDetected()
+    public void OnShakeDetected()
     {
+        vecesSacundido+= 2;
+        sacudir.Play();
         Vibrate();
     }
     
