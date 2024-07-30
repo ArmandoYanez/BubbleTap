@@ -9,9 +9,13 @@ public class winne_manager : MonoBehaviour
     // Variables publicas
     public bubble_manager BubbleManager;
 
+    
     public TextMeshProUGUI[]  P1list;
     public TextMeshProUGUI[]  P2list;
-    
+
+    //Para acceder a los audios source
+    public AudioSource musicbg;
+    public AudioSource winnerSoundEfect;
     
     //Paneles de winner
     public GameObject winnerPanel1;
@@ -29,10 +33,20 @@ public class winne_manager : MonoBehaviour
     {
         if (puntosp1 > puntosp2)
         {
+            musicbg.Stop();
             winnerPanel1.SetActive(true);
+            //transition.Play();
+            LeanTween.scale(winnerPanel2.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f);
+            winnerSoundEfect.Play();
+            //winnerPanel1.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         }else if (puntosp2 > puntosp1)
         {
+            musicbg.Stop();
             winnerPanel2.SetActive(true);
+            //transition.Play();
+            LeanTween.scale(winnerPanel2.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f);
+            winnerSoundEfect.Play();
+            //winnerPanel2.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         }
     }
     

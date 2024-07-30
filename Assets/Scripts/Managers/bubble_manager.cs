@@ -370,8 +370,9 @@ public class bubble_manager : MonoBehaviour
         IEnumerator EsperamosTiempoWinner()
         {
             // Esperar 0.5 segundos
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(3f);
             winnerScript.rondasterminadas();
+            
 
         }
 
@@ -419,9 +420,9 @@ public class bubble_manager : MonoBehaviour
                
                 textoronda.text = "ROUND: " +  (currentRound+2).ToString();
                 StartCoroutine(animationTime(Panel));
+                StartCoroutine(esperarParaX());
                 // LeanTween.scale(Panel.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.0f);
                 tiempoDeEspera2 = false;
-                x = true;
             }
         }
         
@@ -435,9 +436,9 @@ public class bubble_manager : MonoBehaviour
 
             textoronda2.text = "ROUND: " +  (currentRound+1).ToString();
             StartCoroutine(animationTime(Panel2));
+            StartCoroutine(esperarParaX());
             // LeanTween.scale(Panel2.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.0f);
             tiempoDeEspera = false;
-            x = true;
         }
         
         //Iniciar tiempo en 0
@@ -452,5 +453,12 @@ public class bubble_manager : MonoBehaviour
             yield return new WaitForSeconds(animationController.animationClip.length / 2);
             _panel.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
             x = false; 
+        }
+        
+        IEnumerator esperarParaX()
+        {
+            // Esperar 0.5 segundos
+            yield return new WaitForSeconds(2f);
+            x = true;
         }
 }
