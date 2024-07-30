@@ -36,7 +36,7 @@ public class winne_manager : MonoBehaviour
             musicbg.Stop();
             winnerPanel1.SetActive(true);
             //transition.Play();
-            LeanTween.scale(winnerPanel2.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f);
+            LeanTween.scale(winnerPanel1.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f);
             winnerSoundEfect.Play();
             //winnerPanel1.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         }else if (puntosp2 > puntosp1)

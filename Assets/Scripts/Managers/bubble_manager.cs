@@ -370,7 +370,7 @@ public class bubble_manager : MonoBehaviour
         IEnumerator EsperamosTiempoWinner()
         {
             // Esperar 0.5 segundos
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2.5f);
             winnerScript.rondasterminadas();
             
 
