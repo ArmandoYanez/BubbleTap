@@ -15,13 +15,16 @@ using UnityEngine;
 
 public class bubble_manager : MonoBehaviour
 {
+    public bool x = true;
+    // Referencia al script AnimationController
+    public AnimationController animationController;
     public winne_manager winnerScript;
     
     // Variable publicas
     public int bubbleCount;
     public Camera mainCamera;
     
-    //Objeto de la posicon del panel final
+    // Objeto de la posicon del panel final
     public Transform ObjetoAdondePanel;
     
     public GameObject bubble;
@@ -35,15 +38,15 @@ public class bubble_manager : MonoBehaviour
     public float time = 0;
     public AudioSource audioNice;
     
-    //Textos de la ronda
+    // Textos de la ronda
     public TextMeshProUGUI textoronda;
     public TextMeshProUGUI textoronda2;
     
-    //Objetos paneles
+    // Objetos paneles
     [SerializeField] public GameObject Panel; //Panel para desactivar y activar
     [SerializeField] public GameObject Panel2; //Panel para desactivar y activar
     
-    //Variables privadas
+    // Variables privadas
     private bool estado = false;
     public int currentRound = 0; // Ronda actual
     private bool turnoPlayer1 = true;
@@ -54,12 +57,12 @@ public class bubble_manager : MonoBehaviour
 
     private bool audioOneTime = true;
     
-    //Singleton
+    // Singleton
     public static bubble_manager Instance { get; private set; }
 
     private void Awake()
     {
-        //Verificacion del singleton
+        // Verificacion del singleton
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -98,18 +101,16 @@ public class bubble_manager : MonoBehaviour
         }
     }
 
-    //Iniciar ronda del player 1
+    // Iniciar ronda del player 1
     public void RondaPlayer1()
     {
         CheckBubbles1();
-        
     }
 
-    //Iniciar ronda del player 2
+    // Iniciar ronda del player 2
     public void RondaPlayer2()
     {
         CheckBubbles2();
-        
     }
     
     // Update is called once per frame
@@ -219,6 +220,7 @@ public class bubble_manager : MonoBehaviour
     }
 
         void CheckBubbles1() {
+
             // Si no quedan burbujas, pasamos a la siguiente ronda
             if (bubblesRemaining == 0)
             {
@@ -243,6 +245,7 @@ public class bubble_manager : MonoBehaviour
                         
                         if (currentRound <= rounds.Count) {
                             ActivarBorbujasP2(currentRound);
+                            
                             audioOneTime = true;
                         }
                         else
@@ -250,16 +253,15 @@ public class bubble_manager : MonoBehaviour
                             Debug.Log("¡Todas las rondas P1 completadas!");
                             //Corutina animacion panel
                         }
-                        
                     }
             }
          }
 
         void CheckBubbles2() {
+
             // Si no quedan burbujas, pasamos a la siguiente ronda
             if (bubblesRemaining == 0)
             {
-                
                 StartCoroutine(EsperamosTiempoTap1());
                 rounds[currentRound].timeP2 = time;
                 
@@ -409,24 +411,46 @@ public class bubble_manager : MonoBehaviour
         {
             if (currentRound+1 < rounds.Count)
             {
-                //Activar panel
+                // Activar panel
+                if (x)
+                {
+                 animationController.playAnimation();  
+                }
+               
                 textoronda.text = "ROUND: " +  (currentRound+2).ToString();
-                LeanTween.scale(Panel.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.8f);
+                StartCoroutine(animationTime(Panel));
+                // LeanTween.scale(Panel.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.0f);
                 tiempoDeEspera2 = false;
+                x = true;
             }
         }
         
         public void ActivarPanel2()
         {
             //Activar panel
+            if (x)
+            {
+             animationController.playAnimation();  
+            }
+
             textoronda2.text = "ROUND: " +  (currentRound+1).ToString();
-            LeanTween.scale(Panel2.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.8f);
+            StartCoroutine(animationTime(Panel2));
+            // LeanTween.scale(Panel2.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.0f);
             tiempoDeEspera = false;
+            x = true;
         }
         
         //Iniciar tiempo en 0
         public void TiempoEnCero()
         {
             time = 0;
+        }
+
+        IEnumerator animationTime(GameObject _panel)
+        {
+            // Esperar 0.5 segundos
+            yield return new WaitForSeconds(animationController.animationClip.length / 2);
+            _panel.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+            x = false; 
         }
 }
