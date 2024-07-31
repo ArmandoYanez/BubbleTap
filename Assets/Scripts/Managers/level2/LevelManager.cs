@@ -62,7 +62,7 @@ public class LevelManager : MonoBehaviour
                 time += Time.deltaTime;
                 timetext.text = time.ToString("F3") + ("s");
                 
-                Barra.fillAmount = (manager.vecesSacundido * 0.01f);
+                Barra.fillAmount = (manager.vecesSacudido * 0.01f);
             }else if (Barra.fillAmount == 1)
             {
                 timetext.color = new Color32(119,221,119, 255);
@@ -87,7 +87,7 @@ public class LevelManager : MonoBehaviour
                 time += Time.deltaTime;
                 timetext.text = time.ToString("F3") + ("s");
                 
-                Barra2.fillAmount = (manager.vecesSacundido * 0.01f);
+                Barra2.fillAmount = (manager.vecesSacudido * 0.01f);
             }else if (Barra2.fillAmount == 1)
             {
                 timetext.color = new Color32(119,221,119, 255);
@@ -128,7 +128,7 @@ public class LevelManager : MonoBehaviour
         Bubble.SetActive(false);
         Destroy(Barra);
        
-        manager.vecesSacundido = 0;
+        manager.vecesSacudido = 0;
     }
 
     private IEnumerator popDeBorbuja2()

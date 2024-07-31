@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class winne_manager : MonoBehaviour
 {
@@ -87,5 +88,10 @@ public class winne_manager : MonoBehaviour
             P1list[i].text = player1[i].ToString("F3");
             P2list[i].text = player2[i].ToString("F3");
         }
+    }
+
+    public void menuPrincipal()
+    {
+        SceneManager.LoadScene(0);
     }
 }

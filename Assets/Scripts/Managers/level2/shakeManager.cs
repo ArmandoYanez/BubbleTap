@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class shakeManager : MonoBehaviour
 {
-    public float shakeThreshold = 2.0f; 
-    public float shakeDuration = 0.5f;
+    public float shakeThreshold = 2.0f; // Umbral de aceleración para detectar sacudidas
+    public float shakeDuration = 0.5f; // Duración mínima entre sacudidas para contar
 
+    public AudioSource sacudir; // Fuente de audio para reproducir sonido al sacudir
 
-    public AudioSource sacudir;
-    
-    private float lastShakeTime;
-    private Vector3 lastAcceleration;
+    private float lastShakeTime; // Tiempo del último registro de sacudida
+    private Vector3 lastAcceleration; // Última aceleración registrada
 
-    public int vecesSacundido = 0;
-    
+    public int vecesSacudido = 0; // Conteo de sacudidas
+
     void Update()
     {
         Vector3 acceleration = Input.acceleration;
@@ -22,12 +21,11 @@ public class shakeManager : MonoBehaviour
         // Calcula el cambio en la aceleración
         float deltaAcceleration = (acceleration - lastAcceleration).magnitude;
 
-   
         if (deltaAcceleration > shakeThreshold)
         {
             if (Time.time - lastShakeTime > shakeDuration)
             {
-                OnShakeDetected();
+                OnShakeDetected(deltaAcceleration); // Pasa el deltaAcceleration a OnShakeDetected
                 lastShakeTime = Time.time;
             }
         }
@@ -35,11 +33,14 @@ public class shakeManager : MonoBehaviour
         lastAcceleration = acceleration;
     }
 
-    public void OnShakeDetected()
+    public void OnShakeDetected(float deltaAcceleration)
     {
-        vecesSacundido+= 2;
-        sacudir.Play();
-        Vibrate();
+        // Incrementa puntos basados en la magnitud de la aceleración
+        // Puedes ajustar este valor o la fórmula según tus necesidades
+        vecesSacudido += Mathf.RoundToInt(deltaAcceleration); // Incrementa puntos proporcionalmente a la magnitud de la aceleración
+        
+        sacudir.Play(); // Reproduce sonido de sacudida
+        Vibrate(); // Activa vibración si es soportada
     }
     
     public void Vibrate()
