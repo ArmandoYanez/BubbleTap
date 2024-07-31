@@ -169,7 +169,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sobras-navidad-congelador-00410460_00000000_00410460_221221155200_900x900_0: -7129027981460242563
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

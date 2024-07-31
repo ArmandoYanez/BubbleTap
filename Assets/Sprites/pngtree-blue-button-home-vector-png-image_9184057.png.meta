@@ -169,7 +169,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pngtree-blue-button-home-vector-png-image_9184057_0: -1682013079090307274
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
