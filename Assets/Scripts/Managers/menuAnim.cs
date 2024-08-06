@@ -7,6 +7,7 @@ public class menuAnim : MonoBehaviour
 
     public GameObject panelGameModes;
     public GameObject mainMenu;
+    public GameObject panelCredits;
     
     public GameObject bidof;
     public GameObject tupper;
@@ -30,9 +31,21 @@ public class menuAnim : MonoBehaviour
         LeanTween.scale(mainMenu.GetComponent<RectTransform>(), new Vector3(0, 0, 0), 0.5f);
     }
     
+    public void OpenCredits()
+    {
+        LeanTween.scale(panelCredits.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f);
+        LeanTween.scale(mainMenu.GetComponent<RectTransform>(), new Vector3(0, 0, 0), 0.5f);
+    }
+    
     public void CloseGameModes()
     {
         LeanTween.scale(panelGameModes.GetComponent<RectTransform>(), new Vector3(0, 0, 0), 0.5f);
+        LeanTween.scale(mainMenu.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f);
+    }
+    
+    public void CloseCredits()
+    {
+        LeanTween.scale(panelCredits.GetComponent<RectTransform>(), new Vector3(0, 0, 0), 0.5f);
         LeanTween.scale(mainMenu.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f);
     }
     
