@@ -28,7 +28,6 @@ public class bubble_manager : MonoBehaviour
     public Transform ObjetoAdondePanel;
     
     public GameObject bubble;
-   
     public GameObject WinnerPanel;
     
     public int round = 1;
@@ -76,6 +75,10 @@ public class bubble_manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
+        rounds[0].numberOfBubbles = PlayerPrefs.GetInt("Round1");
+        rounds[1].numberOfBubbles = PlayerPrefs.GetInt("Round2");
+        rounds[2].numberOfBubbles = PlayerPrefs.GetInt("Round3");
+
             // Imprmimos texto
             textoronda.text = "ROUND: " + (currentRound+1).ToString();
             BubblesArray = new List<GameObject>(); // Inicializar lista
@@ -194,8 +197,7 @@ public class bubble_manager : MonoBehaviour
 
         void StartRound(int _round)
         {
-           
-            
+
         if (_round < rounds.Count)
         {
             bubblesRemaining = rounds[_round].numberOfBubbles;

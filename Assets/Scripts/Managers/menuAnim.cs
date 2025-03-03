@@ -11,12 +11,20 @@ public class menuAnim : MonoBehaviour
     
     public GameObject bidof;
     public GameObject tupper;
-    
-  
+
+    // Dicionario para juardar las burbujas por ronda
+    private Dictionary<int, (int round1, int round2, int round3)> Difficulties;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Definir las burbujas de cada ronda
+        Difficulties = new Dictionary<int, (int, int, int)>
+        {
+            { 1, (1, 2, 4) },  // Facil 1
+            { 2, (3, 5, 7) },  // Medio 2
+            { 3, (6, 8, 10) }, // Dificil 3
+        };
     }
 
     // Update is called once per frame
@@ -48,10 +56,24 @@ public class menuAnim : MonoBehaviour
         LeanTween.scale(panelCredits.GetComponent<RectTransform>(), new Vector3(0, 0, 0), 0.5f);
         LeanTween.scale(mainMenu.GetComponent<RectTransform>(), new Vector3(1, 1, 1), 0.5f);
     }
-    
-    public void LlevarAClasic()
+
+    public void LlevarAClasic(int difficulty)
     {
-        SceneManager.LoadScene(1);
+
+        if (Difficulties.ContainsKey(difficulty))
+        {
+            var data = Difficulties[difficulty];
+            // Guardar los valores en PlayerPrefs
+            PlayerPrefs.SetInt("Round1", data.round1);
+            PlayerPrefs.SetInt("Round2", data.round2);
+            PlayerPrefs.SetInt("Round3", data.round3);
+            PlayerPrefs.Save(); // Guardar cambios
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            Debug.LogError($"El nivel {difficulty} no existe en el diccionario.");
+        }
     }
     
     public void LlevarAShaking()
